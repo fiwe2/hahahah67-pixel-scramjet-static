@@ -771,7 +771,7 @@
       let pendingTransport = DEFAULT_TRANSPORT // what's selected in UI but not yet saved
 
       function transportPath(method) {
-        return BASE + 'transport/' + method + '.mjs'
+        return method === 'epoxy'\n          ? 'https://gospartans.neocities.org/epoxy.mjs'\n          : 'https://gospartans.neocities.org/libcurl.mjs'
       }
 
       function getSavedTransport() {
@@ -1229,7 +1229,7 @@
         }
 
         status.textContent = 'Loading engine…'
-        await import('./scramjet-engine/scramjet.js')
+        await import('https://gospartans.neocities.org/scramjet.js')
 
         status.textContent = 'Starting controller…'
         const { ScramjetController } = $scramjetLoadController()
@@ -1237,8 +1237,8 @@
           prefix: PREFIX,
           files: {
             wasm: BASE + 'scramjet-engine/scramjet.wasm',
-            all:  BASE + 'scramjet-engine/scramjet-all.js',
-            sync: BASE + 'scramjet-engine/scramjet-sync.js',
+            all:  'https://gospartans.neocities.org/scramjet-all.js',
+            sync: 'https://gospartans.neocities.org/scramjet-sync.js',
           },
         })
 
