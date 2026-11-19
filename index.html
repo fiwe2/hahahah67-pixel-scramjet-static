@@ -771,8 +771,10 @@
       let pendingTransport = DEFAULT_TRANSPORT // what's selected in UI but not yet saved
 
       function transportPath(method) {
-        return method === 'epoxy'\n          ? 'https://gospartans.neocities.org/epoxy.mjs'\n          : 'https://gospartans.neocities.org/libcurl.mjs'
-      }
+  return method === 'epoxy'
+    ? 'https://gospartans.neocities.org/epoxy.mjs'
+    : 'https://gospartans.neocities.org/libcurl.mjs'
+}
 
       function getSavedTransport() {
         try {
